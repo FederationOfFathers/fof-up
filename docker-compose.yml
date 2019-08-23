@@ -1,11 +1,9 @@
-version: '3'
+version: "3.7"
 services:
   discordstats:
     image: 'fofgaming/discordstats:latest'
-    networks: 
-      fofnetwork: {}
-
-networks: 
-  fofnetwork:
-    external: true
-    name: host
+    network_mode: host
+    environment:
+      - DISCORD_BOT_TOKEN
+      - DB_CONNECTION_STRING
+    restart: always
