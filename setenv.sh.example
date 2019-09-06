@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Set the host's IP as an env var to pass to containers
+export HOSTIP=`hostname -I | awk '{print $1}'`
+export DB_CONNECTION_STRING="user:password@tcp($HOSTIP:3306)/fofgaming?charset=utf8&parseTime=true"
