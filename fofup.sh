@@ -9,6 +9,7 @@ if [ -z "$MODE" ] || [ $MODE == "up" ]
 then
     echo "starting up containers..."
     docker-compose up -d --force-recreate
+    exit 0
 fi
 
 
