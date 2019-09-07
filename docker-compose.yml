@@ -4,10 +4,13 @@ services:
     image: 'quay.io/fofgaming/discordstats:latest'
     networks:
       - fofnet
+    volumes:
+      - ${MYSQL_SOCKET_PATH}:/var/run/mysqld/mysqld.sock
     environment:
       - DISCORD_BOT_TOKEN
       - DB_CONNECTION_STRING
-      - ROLLBAR_TOKEN
+      - ENVIRONMENT=${FOF_ENV}
+      - ROLLBAR_TOKEN=${DISCORD_STATS_ROLLBAR_TOKEN}
     restart: always
 networks:
   fofnet:
