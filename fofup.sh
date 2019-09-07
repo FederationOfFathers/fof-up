@@ -8,6 +8,7 @@ source ./setenv.sh # copy setenv.sh.example to setenv.sh and update
 if [ -z "$MODE" ] || [ $MODE == "up" ]
 then
     echo "starting up containers..."
+    docker-compose pull
     docker-compose up -d --force-recreate
     exit 0
 fi
